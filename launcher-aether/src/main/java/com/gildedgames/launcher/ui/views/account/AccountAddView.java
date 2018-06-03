@@ -107,7 +107,7 @@ public class AccountAddView extends JPanel {
 
 		InputChangeHandler usernameInputHandler = new InputChangeHandler();
 
-		this.usernameField = new FlatTextField("Username");
+		this.usernameField = new FlatTextField("E-mail");
 		this.usernameField.setFont(LauncherFonts.OPEN_SANS_REGULAR.deriveFont(14.0f));
 		this.usernameField.setPreferredSize(new Dimension(300, 30));
 		this.usernameField.setOpaque(true);
