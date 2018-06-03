@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 
 public class TitlebarPanel extends JPanel {
-	private static final String SUPPORT_URL = "https://discord.gg/UgeRyED";
+	private static final String SUPPORT_URL = "https://discord.gg/9yhKsTG";
 
 	private static final String SHOP_URL = "http://shop.nytro.co";
 
