@@ -55,7 +55,7 @@ public class Bootstrap {
             return;
         }
 
-        if (!is32BitJava()) {
+        if (is32BitJava()) {
             JOptionPane.showMessageDialog(null, "You're on 32 bit Java, packs may not work well. We highly recommend using 64 bit Java.", "Outdated Java", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -91,7 +91,7 @@ public class Bootstrap {
     }
 
     private static boolean is32BitJava() {
-        return !System.getProperty("sun.arch.data.model").equals("64");
+        return System.getProperty("sun.arch.data.model").equals("32");
     }
 
     public void cleanup() {
