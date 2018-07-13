@@ -55,6 +55,10 @@ public class Bootstrap {
             return;
         }
 
+        if (!is32BitJava()) {
+            JOptionPane.showMessageDialog(null, "You're on 32 bit Java, packs may not work well. We highly recommend using 64 bit Java.", "Outdated Java", JOptionPane.ERROR_MESSAGE);
+        }
+
         Bootstrap bootstrap = new Bootstrap(portable, args);
 
         Bootstrap.addLetsEncryptSSL();
@@ -84,6 +88,10 @@ public class Bootstrap {
 
     private static boolean isJava8() {
         return System.getProperty("java.version").startsWith("1.8.");
+    }
+
+    private static boolean is32BitJava() {
+        return !System.getProperty("sun.arch.data.model").equals("64");
     }
 
     public void cleanup() {
