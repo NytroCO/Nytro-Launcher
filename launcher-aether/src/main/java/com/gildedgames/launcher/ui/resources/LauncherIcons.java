@@ -40,7 +40,7 @@ public class LauncherIcons {
 		BUG = loadIcon("com/gildedgames/assets/icons/16/bug.png");
 		WARN = loadIcon("com/gildedgames/assets/icons/16/warn.png");
 
-		KKMC = loadIcon("com/gildedgames/assets/icons/16/kkmc.png");
+		KKMC = loadIcon("com/gildedgames/assets/icons/16/nytro.png");
 		SHOP = loadIcon("com/gildedgames/assets/icons/16/shop.png");
 		WEB = loadIcon("com/gildedgames/assets/icons/16/web.png");
 

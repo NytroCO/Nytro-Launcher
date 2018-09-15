@@ -292,15 +292,15 @@ public class PlayView extends JPanel implements IListeningView {
 
 			if (selected.isLocal()) {
 				popup.addSeparator();
-
 				menuItem = new JMenuItem(SharedLocale.tr("instance.openFolder"));
+
 				menuItem.addActionListener(ActionListeners.browseDir(this, selected.getContentDir(), true));
 				popup.add(menuItem);
 
-				menuItem = new JMenuItem(SharedLocale.tr("instance.openSaves"));
-				menuItem.addActionListener(ActionListeners.browseDir(this, new File(selected.getContentDir(), "saves"), true));
+				menuItem = new JMenuItem(SharedLocale.tr("instance.openCrash_Reports"));
+				menuItem.addActionListener(ActionListeners.browseDir(this, new File(selected.getContentDir(), "crash-reports"), true));
 				popup.add(menuItem);
-
+				
 				menuItem = new JMenuItem(SharedLocale.tr("instance.openResourcePacks"));
 				menuItem.addActionListener(ActionListeners.browseDir(this, new File(selected.getContentDir(), "resourcepacks"), true));
 				popup.add(menuItem);
