@@ -300,7 +300,7 @@ public class PlayView extends JPanel implements IListeningView {
 				menuItem = new JMenuItem(SharedLocale.tr("instance.openCrash_Reports"));
 				menuItem.addActionListener(ActionListeners.browseDir(this, new File(selected.getContentDir(), "crash-reports"), true));
 				popup.add(menuItem);
-				
+
 				menuItem = new JMenuItem(SharedLocale.tr("instance.openResourcePacks"));
 				menuItem.addActionListener(ActionListeners.browseDir(this, new File(selected.getContentDir(), "resourcepacks"), true));
 				popup.add(menuItem);
