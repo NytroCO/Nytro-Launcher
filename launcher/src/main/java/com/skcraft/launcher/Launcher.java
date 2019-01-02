@@ -23,6 +23,9 @@ import com.skcraft.launcher.update.UpdateManager;
 import com.skcraft.launcher.util.HttpRequest;
 import com.skcraft.launcher.util.SharedLocale;
 import com.skcraft.launcher.util.SimpleLogFormatter;
+import com.skcraft.launcher.model.modpack.LauncherJSON;
+import com.skcraft.launcher.model.modpack.ModJSON;
+import com.skcraft.launcher.model.modpack.ModpackVersion;
 import com.sun.management.OperatingSystemMXBean;
 import lombok.Getter;
 import lombok.NonNull;
@@ -384,6 +387,36 @@ public final class Launcher {
      */
     public URL propUrl(String key, String... args) {
         return HttpRequest.url(prop(key, args));
+    }
+
+    public static URL getMetaURL(String version) throws IOException, InterruptedException {
+        URL url = new URL("https://launchermeta.mojang.com/mc/game/version_manifest.json");
+        LauncherJSON launcherJSON = HttpRequest
+                .get(url)
+                .execute()
+                .expectResponseCode(200)
+                .returnContent()
+                .asJson(LauncherJSON.class);
+        for(ModpackVersion mpVersion : launcherJSON.getVersions()) {
+            if(mpVersion.getID().equalsIgnoreCase(version)) {
+                return new URL(mpVersion.getURL());
+            }
+        }
+        return null;
+    }
+
+    public static String getDownloadURL(String version) throws IOException, InterruptedException {
+        URL url = getMetaURL(version);
+        if(url == null) {
+            return "";
+        }
+        ModJSON modJson = HttpRequest
+                .get(url)
+                .execute()
+                .expectResponseCode(200)
+                .returnContent()
+                .asJson(ModJSON.class);
+        return modJson.getDownloads().getClient().getUrl();
     }
 
     /**
